@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
-  
+
   root to: 'landing#index'
+
+  resources :users, only: [:show]
+  resources :tweets, only: [:create]
+  resources :followers, only: [:create]
 end

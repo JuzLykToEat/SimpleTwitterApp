@@ -1,0 +1,22 @@
+<%= form_for(@tweet, url: tweets_path, method: :post, html: { id: "tweet-create-form", multipart: true }) do |f| %>
+  <div class="form-group">
+    <h4> <%= f.label :text_field, "New Tweet:" %> </h4>
+    <%= f.text_field :body, id: "tweet_body_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group text-center">
+    <%= f.submit "Tweet!", class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>
+
+<% @tweets.each do |tweet| %>
+  <%= tweet.body %>
+<% end %>
+
+<% if current_user.id != @user.id %>
+  <% if current_user.following&.find_by(following_id: @user.id) %>
+    <h4>Followed</h4>
+  <% else %>
+    <%= link_to "Follow", followers_path(user_id: @user.id), method: :post, class: 'white shadowed link-styling' %>
+  <% end %>
+<% end %>
