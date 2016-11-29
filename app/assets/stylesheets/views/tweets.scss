@@ -1,0 +1,33 @@
+.tweet-container {
+  border-width: medium;
+  border-color: black;
+  border-style: solid;
+  margin: 10px auto;
+  display: flex;
+
+  .text-container {
+    flex: 0 0 86%;
+    margin: 10px 2%;
+  }
+
+  .like-container {
+    flex: 0 0 3%;
+    margin: 10px 2%;
+
+    .btn {
+      align-content: center;
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 5px;
+    }
+
+    .fa {
+      margin: auto 5px;
+    }
+
+    .fa-heart {
+      color: red;
+    }
+  }
+}

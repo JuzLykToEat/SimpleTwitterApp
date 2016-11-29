@@ -4,11 +4,8 @@ class VotesController < ApplicationController
   def like
     if @vote.like == 1
       value = 0
-      flash.now[:success] = "You've unliked a tweet."
     else
       value = 1
-      flash.now[:success] = "You've liked a tweet."
-      @liked = "btn-info"
     end
 
     update_vote(value)
@@ -23,7 +20,7 @@ class VotesController < ApplicationController
   def update_vote(value)
     if @vote
       @vote.update(like: value)
-      VoteBroadcastJob.perform_later(@vote.comment)
+      redirect_to(:back)
     end
   end
 end

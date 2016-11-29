@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :tweets, only: [:create]
-  resources :followers, only: [:create]
+  resources :followers, only: [:create, :destroy]
 end

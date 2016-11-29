@@ -1,0 +1,22 @@
+<div class="profile-container">
+  <h1 class="text-center"><%= user.username %></h1>
+
+  <% if current_user.id != user.id %>
+    <% if current_user.followings&.find_by(following_id: user.id) %>
+      <%= link_to "Followed", follower_path(user_id: user.id), method: :delete, data: { confirm: "Unfollow?"}, class: "btn btn-info btn-block" %>
+    <% else %>
+      <%= link_to "Follow", followers_path(user_id: user.id), method: :post, class: "btn btn-primary btn-block" %>
+    <% end %>
+  <% end %>
+
+  <div class="details-container">
+    <div class="follower-container">
+      <h3><%= user.total_followers %></h3>
+      <h5>Followers<h5>
+    </div>
+    <div class="follower-container">
+      <h3><%= user.total_followings %></h3>
+      <h5>Following<h5>
+    </div>
+  </div>
+</div>

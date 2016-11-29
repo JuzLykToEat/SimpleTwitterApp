@@ -1,0 +1,13 @@
+.dashboard-container {
+  display: flex;
+
+  .profile {
+    flex: 0 0 28%;
+    margin: 30px 1%;
+  }
+
+  .tweet {
+    flex: 0 0 68%;
+    margin: auto 1%;
+  }
+}
