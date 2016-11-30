@@ -3,6 +3,10 @@
       <h1 class="text-center">Most Popular Tweets For The Day!</h1>
     </div>
     <div class="tweet">
-      <%= render partial: "partials/tweets", locals: { tweets: @popular } %>
+      <% if @popular.empty? %>
+        <h3 class="text-center">There are currently no new tweet for today yet.</h3>
+      <% else %>
+        <%= render partial: "partials/tweets", locals: { tweets: @popular } %>
+      <% end %>
     </div>
 </div>

@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   after_action :read_notification
 
   def index
-    @notifications = current_user.notifications.all
+    @notifications = current_user.notifications.all.order(created_at: :desc)
   end
 
   private
