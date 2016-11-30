@@ -3,12 +3,12 @@
     <div class="text-container">
       <%= link_to "#{tweet.user.username}", user_path(tweet.user), class: 'white shadowed link-styling' %>
       <h3><%= tweet.body %></h3>
-      <h6><%= tweet.created_at.strftime("%I:%M %p %e/%m") %></h6>
+      <h6>Tweeted at <%= tweet.created_at.strftime("%I:%M %p %e/%m") %></h6>
     </div>
 
     <div class="like-container">
       <%= link_to like_path(tweet_id: tweet.id), method: :post, class: "btn btn-block", id: "like-button" do %>
-        <% if current_user.votes.find_by(tweet_id: tweet.id)&.like == 1 %>
+        <% if current_user&.votes&.find_by(tweet_id: tweet.id)&.like == 1 %>
           <i class="fa fa-heart" aria-hidden="true"></i>
         <% else %>
           <i class="fa fa-heart-o" aria-hidden="true"></i>

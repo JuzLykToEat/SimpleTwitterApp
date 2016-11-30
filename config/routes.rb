@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   post :like, to: 'votes#like'
 
   resources :users, only: [:show]
-  resources :tweets, only: [:create]
+  resources :tweets, only: [:create, :index]
   resources :followers, only: [:create, :destroy]
 end

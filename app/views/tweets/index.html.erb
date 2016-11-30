@@ -1,0 +1,8 @@
+<div class="dashboard-container">
+    <div class="profile">
+      <h1 class="text-center">Most Popular Tweets For The Day!</h1>
+    </div>
+    <div class="tweet">
+      <%= render partial: "partials/tweets", locals: { tweets: @popular } %>
+    </div>
+</div>
