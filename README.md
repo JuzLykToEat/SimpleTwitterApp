@@ -1,6 +1,13 @@
 # README
 
-This is a minimal Twitter-like application.
+This is a minimal Twitter-like application build on RoR.
+
+Version:
+
+* Rails 5.0.0.1
+
+* Ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux]
+
 
 Features included in this application:
 
