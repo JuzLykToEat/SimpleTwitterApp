@@ -7,7 +7,9 @@ class FollowersController < ApplicationController
 
     @following = current_user.followings.build(following_id: @user.id)
 
-    if @follower.save && @following.save
+    @notification = @user.notifications.build(body: "#{current_user.username} has followed you!")
+
+    if @follower.save && @following.save && @notification.save
       flash[:success] = "You've followed #{@user.username}"
       redirect_to(:back)
     end

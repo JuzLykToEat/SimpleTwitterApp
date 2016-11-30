@@ -2,7 +2,9 @@
   <div class="tweet-container">
     <div class="text-container">
       <%= link_to "#{tweet.user.username}", user_path(tweet.user), class: 'white shadowed link-styling' %>
-      <h3><%= tweet.body %></h3>
+      <div class="body-container">
+        <h3><%= tweet.body %></h3>
+      </div>
       <h6>Tweeted at <%= tweet.created_at.strftime("%I:%M %p %e/%m") %></h6>
     </div>
 

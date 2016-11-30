@@ -25,12 +25,21 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = current_user.tweets.build(tweet_params)
+    @followers = current_user.followers.all
 
     if @tweet.save
       flash[:success] = "You've tweeted!"
+
+      @followers.each do |follower|
+        @follower = User.find_by(id: follower.follower_id)
+        @notification = @follower.notifications.build(body: "#{current_user.username} has a new tweet!")
+        @notification.save
+      end
+      
       redirect_to(:back)
     else
-      flash.now[:danger] = @tweet.errors.full_messages
+      flash[:danger] = @tweet.errors.full_messages
+      redirect_to(:back)
     end
   end
 

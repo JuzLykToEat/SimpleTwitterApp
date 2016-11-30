@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :tweets, only: [:create, :index]
   resources :followers, only: [:create, :destroy]
+  resources :notifications, only: [:index]
 end

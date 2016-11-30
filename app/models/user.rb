@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :followers
   has_many :followings
   has_many :votes
+  has_many :notifications
 
   def total_followers
     followers.all.count
@@ -15,6 +16,10 @@ class User < ApplicationRecord
 
   def total_followings
     followings.all.count
+  end
+
+  def total_new_notifications
+    notifications.where(read: 0).count
   end
 
 end

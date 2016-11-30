@@ -8,6 +8,10 @@
   .text-container {
     flex: 0 0 86%;
     margin: 10px 2%;
+
+    .body-container {
+      word-break: break-all;
+    }
   }
 
   .like-container {
